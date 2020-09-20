@@ -1,6 +1,9 @@
 package TwoSum
 
-import "sort"
+import (
+	"math"
+	"sort"
+)
 
 func TwoSum(nums []int, target int) []int {
 	mp := make(map[int]int)
@@ -57,6 +60,39 @@ func ThreeSum(nums []int) [][]int {
 					j++
 				} else {
 					k--
+				}
+			}
+		}
+	}
+	return result
+}
+
+func ThreeSumClosest(nums []int, target int) int {
+	min := math.MaxInt64
+	var result int
+	lth := len(nums)
+	sort.Ints(nums)
+	for i := 0; i <= lth-3; i++ {
+		if i == 0 || nums[i] != nums[i-1] {
+			j := i+1
+			k := lth-1
+			for j < k {
+				sum := nums[i] + nums[j] + nums[k]
+				diff := sum - target
+				if diff == 0 {
+					return sum
+				} else if diff > 0 {
+					k--
+					if diff < min {
+						min = diff
+						result = sum
+					}
+				} else {
+					j++
+					if -diff < min {
+						min = -diff
+						result = sum
+					}
 				}
 			}
 		}

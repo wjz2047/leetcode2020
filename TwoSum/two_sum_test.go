@@ -16,3 +16,8 @@ func TestTwoSum2(t *testing.T) {
 	target := -1
 	fmt.Println(TwoSum2(nums, target))
 }
+
+func TestThreeSum(t *testing.T) {
+	nums := []int{0}
+	fmt.Println(ThreeSum(nums))
+}

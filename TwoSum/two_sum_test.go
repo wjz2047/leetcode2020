@@ -27,3 +27,9 @@ func TestThreeSumClosest(t *testing.T) {
 	target := 1
 	fmt.Println(ThreeSumClosest(nums, target))
 }
+
+func TestFourSum(t *testing.T) {
+	nums := []int{1, 0, -1, 0, -2, 2}
+	target := 0
+	fmt.Println(FourSum(nums, target))
+}
